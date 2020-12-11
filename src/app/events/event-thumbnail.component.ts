@@ -10,7 +10,7 @@ import { Component, Input } from '@angular/core';
           Time: {{event?.time}}
           <span *ngSwitchCase="'8:00 am'">(Early Start)</span>
           <span *ngSwitchCase="'10:00 am'">(Late Start)</span>
-          <span *ngSwitchDefault="'9:00 am'">(Normal Start)</span>
+          <span *ngSwitchDefault>(Normal Start)</span>
         </div>
         <div>Price: \${{event?.price}}</div>
         <div *ngIf="event?.location">
