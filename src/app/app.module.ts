@@ -9,6 +9,7 @@ import { CgWebAppComponent } from './cg-web-app.component'
 import { NavBarComponent } from './nav/nav-bar.component'
 import { Error404Component } from './errors/404.component'
 import { ToastrService } from './common/toastr.service'
+import { CollapsibleWellComponent } from "./common/collapsible-well.component";
 import { AuthService } from './user/auth.service'
 
 import {
@@ -39,7 +40,8 @@ import {
     EventDetailsComponent,
     Error404Component,
     CreateSessionComponent,
-    SessionListComponent
+    SessionListComponent,
+    CollapsibleWellComponent
   ],
   providers: [
     EventService,
