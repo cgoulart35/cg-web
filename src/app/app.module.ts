@@ -8,7 +8,7 @@ import { appRoutes } from './routes'
 import { CgWebAppComponent } from './cg-web-app.component'
 import { NavBarComponent } from './nav/nav-bar.component'
 import { Error404Component } from './errors/404.component'
-import { ToastrService } from './common/toastr.service'
+import { Toastr, TOASTR_TOKEN } from './common/toastr.service'
 import { CollapsibleWellComponent } from "./common/collapsible-well.component";
 import { AuthService } from './user/auth.service'
 
@@ -24,6 +24,8 @@ import {
   SessionListComponent,
   DurationPipe
 } from './events/index'
+
+declare let toastr:Toastr
 
 @NgModule({
   imports: [
@@ -47,7 +49,10 @@ import {
   ],
   providers: [
     EventService,
-    ToastrService,
+    {
+      provide: TOASTR_TOKEN,
+      useValue: toastr
+    },
     EventRouteActivator,
     EventsListResolver,
     AuthService,
