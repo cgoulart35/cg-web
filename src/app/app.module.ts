@@ -22,13 +22,16 @@ import {
 import {
   EventsListComponent,
   EventThumbnailComponent,
-  EventService,
   EventDetailsComponent,
   CreateEventComponent,
-  EventRouteActivator,
-  EventsListResolver,
   CreateSessionComponent,
   SessionListComponent,
+  UpvoteComponent,
+  EventService,
+  VoterService,
+  EventRouteActivator,
+  EventsListResolver,
+  LocationValidator,
   DurationPipe
 } from './events/index'
 
@@ -54,26 +57,20 @@ declare let jQuery:any
     SessionListComponent,
     CollapsibleWellComponent,
     SimpleModalComponent,
+    UpvoteComponent,
     ModalTriggerDirective,
+    LocationValidator,
     DurationPipe
   ],
   providers: [
     EventService,
-    {
-      provide: TOASTR_TOKEN,
-      useValue: toastr
-    },
-    {
-      provide: JQ_TOKEN,
-      useValue: jQuery
-    },
+    VoterService,
+    AuthService,
     EventRouteActivator,
     EventsListResolver,
-    AuthService,
-    {
-      provide: 'canDeactivateCreateEvent',
-      useValue: checkDirtyState
-    }
+    { provide: TOASTR_TOKEN, useValue: toastr },
+    { provide: JQ_TOKEN, useValue: jQuery },
+    { provide: 'canDeactivateCreateEvent', useValue: checkDirtyState }
   ],
   bootstrap: [CgWebAppComponent]
 })
