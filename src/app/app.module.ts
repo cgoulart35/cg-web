@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 import { RouterModule } from '@angular/router'
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http"
 
 import { appRoutes } from './routes'
 
@@ -29,7 +30,7 @@ import {
   UpvoteComponent,
   EventService,
   VoterService,
-  EventRouteActivator,
+  EventResolver,
   EventsListResolver,
   LocationValidator,
   DurationPipe
@@ -43,7 +44,8 @@ declare let jQuery:any
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule
   ],
   declarations: [
     CgWebAppComponent,
@@ -66,7 +68,7 @@ declare let jQuery:any
     EventService,
     VoterService,
     AuthService,
-    EventRouteActivator,
+    EventResolver,
     EventsListResolver,
     { provide: TOASTR_TOKEN, useValue: toastr },
     { provide: JQ_TOKEN, useValue: jQuery },
