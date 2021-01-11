@@ -1,7 +1,7 @@
 import { Component, Input, OnChanges } from "@angular/core"
 import { ISession } from "../shared"
 import { AuthService } from "../../user/auth.service"
-import { VoterService } from "./voter.service";
+import { VoterService } from "./voter.service"
 
 @Component({
     selector: 'session-list',
